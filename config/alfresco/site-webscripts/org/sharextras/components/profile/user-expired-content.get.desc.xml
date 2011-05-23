@@ -1,0 +1,5 @@
+<webscript>
+  <shortname>User Expired Content</shortname>
+  <description>Lists user expired content</description>
+  <url>/extras/components/profile/user-expired-content</url>
+</webscript>

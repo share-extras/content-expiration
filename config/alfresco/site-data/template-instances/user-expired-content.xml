@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<template-instance>
+   <template-type>org/sharextras/user-expired-content</template-type>
+   <components>
+      <component>
+         <region-id>title</region-id>
+         <url>/extras/components/title/user-expired-content-title</url>
+      </component>
+      <component>
+         <region-id>toolbar</region-id>
+         <url>/components/profile/userprofile-toolbar</url>
+      </component>
+      <component>
+         <region-id>user-expired-content</region-id>
+         <url>/extras/components/profile/user-expired-content</url>
+      </component>
+   </components>
+</template-instance>

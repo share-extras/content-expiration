@@ -1,0 +1,71 @@
+<alfresco-config>
+
+   <!-- cm:content type (existing nodes) -->
+   <config evaluator="node-type" condition="cm:content">
+      <forms>
+         <!-- Default form configuration used on the document details and edit metadata pages -->
+         <form>
+            <field-visibility>
+               <show id="pl:validityPeriod" />
+               <hide id="cm:to" for-mode="edit" />
+            </field-visibility>
+            <appearance>
+               <field id="cm:from">
+                  <control template="/org/sharextras/components/form/controls/date-now-hidden.ftl" />
+               </field>
+               <field id="pl:status" label-id="label.pl_status" />
+               <field id="pl:validityPeriod" label-id="label.pl_validityPeriod" description-id="description.pl_validityPeriod">
+                  <control template="/org/sharextras/components/form/controls/validity-period.ftl" />
+                  <!-- <control template="/org/alfresco/components/form/controls/selectone.ftl">
+                     <control-param name="options">3M|{options.pl_validityPeriod.3M},6M|{options.pl_validityPeriod.6M},9M|{options.pl_validityPeriod.9M},12M|{options.pl_validityPeriod.12M}</control-param>
+                  </control>-->
+               </field>
+            </appearance>
+         </form>
+      </forms>
+   </config>
+
+   <!-- cm:content type (creating nodes) -->
+   <config evaluator="model-type" condition="cm:content">
+      <forms>
+         <!-- Search form -->
+         <form id="search_aspect_pl_status">
+            <field-visibility>
+               <show id="cm:name" />
+               <show id="cm:owner" force="true" />
+               <show id="cm:from" force="true" />
+               <show id="cm:to" force="true" />
+            </field-visibility>
+            <appearance>
+               <field id="cm:from">
+                  <control template="/org/alfresco/components/form/controls/daterange.ftl" />
+               </field>
+               <field id="cm:to">
+                  <control template="/org/alfresco/components/form/controls/daterange.ftl" />
+               </field>
+            </appearance>
+         </form>
+      </forms>
+   </config>
+   
+   <config evaluator="string-compare" condition="AdvancedSearch">
+      <advanced-search>
+         <!-- Forms for the advanced search type list -->
+         <forms>
+            <!--
+               The 'form' config element contains the name of the model type
+               of the form to display.
+               
+               The element supports the following optional attributes:
+                  id = form id, the id of "search" will be assumed if not set
+                  label = label text to display - defaults to model type if not set
+                  labelId = I18N message id of label text to display
+                  description = description text to display
+                  descriptionId = I18N message id of description text to display
+            -->
+            <form labelId="search.form.label.aspect_pl_status" descriptionId="search.form.desc.aspect_pl_status" id="search_aspect_pl_status">cm:content</form>
+         </forms>
+      </advanced-search>
+   </config>
+
+</alfresco-config>

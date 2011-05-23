@@ -1,0 +1,6 @@
+<webscript>
+   <shortname>My Expired Content</shortname>
+   <description>Shows expired content items for the current user</description>
+   <url>/components/dashlets/my-expired-content</url>
+   <family>user-dashlet</family>
+</webscript>

@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<page>
+   <title>Expired Content for a User</title>
+   <title-id>page.expired-content.title</title-id>
+   <description>Expired Content for a User</description>
+   <description-id>page.expired-content.description</description-id>
+   <template-instance>user-expired-content</template-instance>
+   <authentication>user</authentication>
+</page>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<model name="pl:partnerlifecycle" xmlns="http://www.alfresco.org/model/dictionary/1.0">
+
+   <description>Partner Lifecycle Model</description>
+   <author>Will Abson</author>
+   <version>1.0</version>
+
+   <imports>
+       <import uri="http://www.alfresco.org/model/dictionary/1.0" prefix="d" />
+       <import uri="http://www.alfresco.org/model/content/1.0" prefix="cm" />
+   </imports>
+
+   <namespaces>
+       <namespace uri="http://www.alfresco.org/model/partnerlifecycle/1.0" prefix="pl" />
+   </namespaces>
+
+   <constraints>
+       <constraint name="pl:status" type="LIST">
+           <parameter name="allowedValues">
+               <list>
+                   <value>Draft</value>
+                   <value>Awaiting Review</value>
+                   <value>In Review</value>
+                   <value>Approved</value>
+                   <value>Rejected</value>
+                   <value>Expired</value>
+               </list>
+           </parameter>
+       </constraint>
+       <constraint name="pl:validityPeriod" type="LIST">
+           <parameter name="allowedValues">
+               <list>
+                   <value>3M</value>
+                   <value>6M</value>
+                   <value>9M</value>
+                   <value>12M</value>
+               </list>
+           </parameter>
+       </constraint>
+   </constraints>
+
+   <aspects>
+
+       <aspect name="pl:status">
+           <title>Lifecycle Status</title>
+           <properties>
+              <!--
+               <property name="pl:status">
+                   <title>Status</title>
+                   <type>d:text</type>
+                   <default>Draft</default>
+                   <constraints>
+                       <constraint ref="pl:status" />
+                   </constraints>
+               </property>
+               -->
+               <property name="pl:validityPeriod">
+                   <title>Validity Period</title>
+                   <type>d:text</type>
+                   <default>3M</default>
+               </property>
+           </properties>
+         <mandatory-aspects>
+            <aspect>cm:effectivity</aspect>
+            <aspect>cm:ownable</aspect>
+         </mandatory-aspects>
+       </aspect>
+
+   </aspects>
+
+</model>
