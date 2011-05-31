@@ -46,6 +46,18 @@ function executeAction(item)
 function processDocument(doc)
 {
    var validityPeriod = defaultValidityPeriod;
+   
+   if (!doc.hasAspect("pl:status"))
+   {
+      var sprops = new Array(1);
+      sprops["pl:validityPeriod"] = validityPeriod;
+      doc.addAspect("pl:status", sprops);
+   }
+   else
+   {
+      validityPeriod = doc.properties["pl:validityPeriod"];
+   }
+
    if (!doc.hasAspect("cm:effectivity"))
    {
       var day = 1000*60*60*24;
@@ -58,21 +70,14 @@ function processDocument(doc)
       doc.addAspect("cm:effectivity", eprops);
    }
    
-   if (!doc.hasAspect("pl:status"))
-   {
-      var sprops = new Array(1);
-      sprops["pl:validityPeriod"] = validityPeriod;
-      doc.addAspect("pl:status", sprops);
-   }
-
    // Set document owner
    // doc.setOwner() does not work for non-admin users, throws an exception
    // doc.setOwner(person.properties.userName);
    if (!doc.hasAspect("cm:ownable"))
    {
       doc.addAspect("cm:ownable");
+      doc.properties["cm:owner"] = person.properties.userName;
    }
-   doc.properties["cm:owner"] = person.properties.userName;
    doc.save();
 }
 
