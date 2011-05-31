@@ -60,7 +60,7 @@ function processDocument(doc)
    
    if (!doc.hasAspect("pl:status"))
    {
-      var sprops = new Array(2);
+      var sprops = new Array(1);
       sprops["pl:validityPeriod"] = validityPeriod;
       doc.addAspect("pl:status", sprops);
    }
