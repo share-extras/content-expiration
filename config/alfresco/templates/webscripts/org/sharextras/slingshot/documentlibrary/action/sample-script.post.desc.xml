@@ -1,0 +1,8 @@
+<webscript>
+  <shortname>Sample Script Action</shortname>
+  <description>Document List Action - Execute a specific script against document(s)</description>
+  <url>/slingshot/doclib/action/sample-script/node/{store_type}/{store_id}/{id}</url>
+  <format default="json">argument</format>
+  <authentication>user</authentication>
+  <transaction>required</transaction>
+</webscript>
