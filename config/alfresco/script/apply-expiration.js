@@ -22,7 +22,7 @@ var defaultValidityPeriod = "3M";
  * @param item  The folder/document to start with
  * @return  null
  */
-function processItem(item)
+function executeAction(item)
 {
    if (item.isDocument)
    {
@@ -49,31 +49,31 @@ function processDocument(doc)
    if (!doc.hasAspect("cm:effectivity"))
    {
       var day = 1000*60*60*24;
-      var month = 7*4.35;
+      var month = 7*(4.35);
       var now = doc.properties.modified;
-      var then = new Date(now.getTime() + parseInt(validityPeriod, 10) * month * day);
-      var props = new Array(2);
-      props["cm:from"] = now;
-      props["cm:to"] = then;
-      doc.addAspect("cm:effectivity", props);
+      var then = new Date(now.getTime() + Math.floor(parseInt(validityPeriod, 10) * month) * day);
+      var eprops = new Array(2);
+      eprops["cm:from"] = now;
+      eprops["cm:to"] = then;
+      doc.addAspect("cm:effectivity", eprops);
    }
    
    if (!doc.hasAspect("pl:status"))
    {
-      var props = new Array(2);
-      props["pl:validityPeriod"] = validityPeriod;
-      doc.addAspect("pl:status", props);
+      var sprops = new Array(2);
+      sprops["pl:validityPeriod"] = validityPeriod;
+      doc.addAspect("pl:status", sprops);
    }
 
    // Set document owner
-   // document.setOwner() does not work for non-admin users, throws an exception
-   // document.setOwner(person.properties.userName);
-   if (!document.hasAspect("cm:ownable"))
+   // doc.setOwner() does not work for non-admin users, throws an exception
+   // doc.setOwner(person.properties.userName);
+   if (!doc.hasAspect("cm:ownable"))
    {
-      document.addAspect("cm:ownable");
+      doc.addAspect("cm:ownable");
    }
-   document.properties["cm:owner"] = person.properties.userName;
-   document.save();
+   doc.properties["cm:owner"] = person.properties.userName;
+   doc.save();
 }
 
 /**
@@ -83,6 +83,6 @@ function processDocument(doc)
  */
 function main()
 {
-   processItem(space);
+   executeAction(document || space);
 }
 main();

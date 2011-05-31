@@ -12,25 +12,29 @@
  * 
  * @return  null
  */
-function main()
+function executeAction(doc)
 {
-   if (document.hasAspect("pl:status"))
+   if (doc.hasAspect("pl:status"))
    {
-      validityPeriod = parseInt(document.properties["pl:validityPeriod"]);
+      validityPeriod = parseInt(doc.properties["pl:validityPeriod"], 10);
       var day = 1000*60*60*24;
       var month = 7*4.35;
       var now = new Date();
       var then = new Date(now.getTime() + Math.floor(validityPeriod * month) * day);
-      document.properties["cm:to"] = then;
+      doc.properties["cm:to"] = then;
 
       // Update owner if it does not exist
-      if (!document.hasAspect("cm:ownable"))
+      if (!doc.hasAspect("cm:ownable"))
       {
-         document.addAspect("cm:ownable");
-         document.properties["cm:owner"] = document.properties["cm:creator"];
+         doc.addAspect("cm:ownable");
+         doc.properties["cm:owner"] = document.properties["cm:creator"];
       }
       
-      document.save();
+      doc.save();
    }
+}
+function main()
+{
+   executeAction(document || space);
 }
 main();

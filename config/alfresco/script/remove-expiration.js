@@ -14,7 +14,7 @@
  * @param item  The folder to start in
  * @return  null
  */
-function processItem(item)
+function executeAction(item)
 {
    if (item.isDocument)
    {
@@ -45,6 +45,6 @@ function processItem(item)
  */
 function main()
 {
-   processItem(space);
+   executeAction(document || space);
 }
 main();
