@@ -1,5 +1,20 @@
 <alfresco-config>
 
+   <config evaluator="string-compare" condition="DocumentLibrary">
+      <!--
+         Used by the "Manage Aspects" action
+
+         For custom aspects, remember to also add the relevant i18n string(s)
+            cm_myaspect=My Aspect
+      -->
+      <aspects>
+         <!-- Aspects that a user can see -->
+         <visible>
+            <aspect name="pl:status" />
+         </visible>
+      </aspects>
+   </config>
+
    <!-- cm:content type (existing nodes) -->
    <config evaluator="node-type" condition="cm:content">
       <forms>
