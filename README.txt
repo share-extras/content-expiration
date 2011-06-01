@@ -13,7 +13,7 @@ out-of-the-box Ownable aspect) property, which should be set the username of the
 owner.
 
 To allow expiration dates to be set automatically based on a simple policy,
-a custom aspect named Lifecycle Status is supplied in a custom model. The
+a custom aspect named Validity is supplied in a custom model. The
 aspect specifies a Validity Period property, which defines how long a content 
 item should be considered valid for before a further review is necessary.
 
@@ -38,11 +38,11 @@ time using the Edit Metadata page for the document. The expiration date cannot b
 set directly, only indirectly via the validity period.
 
 To allow the expiration date to be extended when the document is reviewed, another 
-repository script update-expiration.js is provided in config/alfresco/script. Like
-apply-expiration.js this can be run on-demand from Explorer or via the Execute 
-Script action, but since this will be used more frequently by users you may
-wish to configure the custom action supplied (see Custom Action Installation, below), 
-which will allow users to extend the expiration date with a single click.
+repository script update-expiration.js is provided. Like apply-expiration.js this 
+can be run on-demand from Explorer or via the Execute Script action, but since this 
+will be used more frequently by users you may wish to configure the custom action 
+also supplied (see Custom Action Installation, below), which will allow users to 
+run the script with a single click.
 
 Alternatively you can also set up a content rule to execute update-expiration.js
 whenever a user updates the content item. This may be preferable to adding custom
@@ -51,6 +51,9 @@ actions in some circumstances.
 A third script remove-expiration.js will remove the expiration metadata from a
 content item that you no longer wish to be managed in this way. You can run this on
 a document or on a folder to remove the metadata from all documents below that level.
+
+You can also manually remove content expiration metadata from items by using
+Share's Manage Aspects dialogue, to remove the Validity and Effectivity aspects.
 
 Installation
 ------------
