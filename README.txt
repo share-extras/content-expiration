@@ -14,8 +14,8 @@ owner.
 
 To allow expiration dates to be set automatically based on a simple policy,
 a custom aspect named Validity is supplied in a custom model. The
-aspect specifies a Validity Period property, which defines how long a content 
-item should be considered valid for before a further review is necessary.
+aspect specifies a Validity Period property value, which defines how long that 
+content item should be considered valid for before a further review is necessary.
 
 A repository script apply-expiration.js is supplied in config/alfresco/script 
 to allow a default validity period (3 months) to be set against content items. 
