@@ -78,7 +78,9 @@
                   description = description text to display
                   descriptionId = I18N message id of description text to display
             -->
+            <!--
             <form labelId="search.form.label.aspect_pl_status" descriptionId="search.form.desc.aspect_pl_status" id="search_aspect_pl_status">cm:content</form>
+            -->
          </forms>
       </advanced-search>
    </config>
