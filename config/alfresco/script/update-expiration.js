@@ -21,6 +21,7 @@ function executeAction(doc)
       var month = 7*4.35;
       var now = new Date();
       var then = new Date(now.getTime() + Math.floor(validityPeriod * month) * day);
+      doc.properties["cm:from"] = now;
       doc.properties["cm:to"] = then;
 
       // Update owner if it does not exist
