@@ -15,8 +15,8 @@
       </aspects>
    </config>
 
-   <!-- cm:content type (existing nodes) -->
-   <config evaluator="node-type" condition="cm:content">
+   <!-- Modify forms for items with pl:status aspect (existing nodes) -->
+   <config evaluator="aspect" condition="pl:status">
       <forms>
          <!-- Default form configuration used on the document details and edit metadata pages -->
          <form>
@@ -28,7 +28,6 @@
                <field id="cm:from">
                   <control template="/org/sharextras/components/form/controls/date-now-hidden.ftl" />
                </field>
-               <field id="pl:status" label-id="label.pl_status" />
                <field id="pl:validityPeriod" label-id="label.pl_validityPeriod" description-id="description.pl_validityPeriod">
                   <control template="/org/sharextras/components/form/controls/validity-period.ftl" />
                   <!-- <control template="/org/alfresco/components/form/controls/selectone.ftl">
