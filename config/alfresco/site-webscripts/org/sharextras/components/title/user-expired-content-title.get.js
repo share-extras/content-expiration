@@ -5,17 +5,26 @@
 var profileId = page.url.templateArgs["userid"];
 if (profileId != null)
 {
-   // load user details for the profile from the repo
-   var userObj = user.getUser(profileId);
-   if (userObj != null)
+   if (profileId != "all")
    {
-      model.profile = userObj;
+      // load user details for the profile from the repo
+      var userObj = user.getUser(profileId);
+      if (userObj != null)
+      {
+         model.profile = userObj;
+      }
+      else
+      {
+         // fallback if unable to get user details
+         // TODO: display error?
+         model.profile = user;
+      }
+      model.allUsers = false;
    }
    else
    {
-      // fallback if unable to get user details
-      // TODO: display error?
-      model.profile = user;
+      model.profile = null;
+      model.allUsers = true;
    }
 }
 else
