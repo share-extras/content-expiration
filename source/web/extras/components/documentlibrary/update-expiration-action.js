@@ -15,10 +15,11 @@
     * Base name for message bundle strings used for success/failure messages. Messages should 
     * be defined in your own global message bundle.
     */
-   var MSG_BASE = "message.update-expiration";
+   var MSG_BASE = "update-expiration";
    
    /**
-    * Name of the JavaScript function to be added to the Alfresco.doclib.Actions prototype
+    * Name of the JavaScript function to be added to the Alfresco.doclib.Actions prototype,
+    * e.g. onActionMyTestScript
     */
    var FN_NAME = "onActionUpdateExpiration";
    
@@ -40,11 +41,11 @@
             {
                name: "metadataRefresh"
             },
-            message: this.msg(MSG_BASE + ".success", file.displayName)
+            message: this.msg("message." + MSG_BASE + ".success", file.displayName)
          },
          failure:
          {
-            message: this.msg(MSG_BASE + ".failure", file.displayName)
+            message: this.msg("message." + MSG_BASE + ".failure", file.displayName)
          },
          webscript:
          {
