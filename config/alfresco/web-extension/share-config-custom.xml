@@ -62,26 +62,15 @@
       </forms>
    </config>
    
+   <!-- Forms for the advanced search type list -->
+   <!--
    <config evaluator="string-compare" condition="AdvancedSearch">
       <advanced-search>
-         <!-- Forms for the advanced search type list -->
          <forms>
-            <!--
-               The 'form' config element contains the name of the model type
-               of the form to display.
-               
-               The element supports the following optional attributes:
-                  id = form id, the id of "search" will be assumed if not set
-                  label = label text to display - defaults to model type if not set
-                  labelId = I18N message id of label text to display
-                  description = description text to display
-                  descriptionId = I18N message id of description text to display
-            -->
-            <!--
             <form labelId="search.form.label.aspect_pl_status" descriptionId="search.form.desc.aspect_pl_status" id="search_aspect_pl_status">cm:content</form>
-            -->
          </forms>
       </advanced-search>
    </config>
+   -->
 
 </alfresco-config>
